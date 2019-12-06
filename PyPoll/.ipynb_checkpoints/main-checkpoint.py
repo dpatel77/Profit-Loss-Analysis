@@ -51,7 +51,7 @@ result = pd.merge(group_voter_per
                  , how='left',on=group_voter_per.index)
 
 df_combined = result['key_0'].map(str) + ':  ' + result['Candidate_x'].map(str) + ' (' + result['Candidate_y'].map(str) + ')'  
-print (df_combined)
+print (df_combined.to_string(index=False))
 
 # The winner of the election based on popular vote.
 result.sort_values(by='Candidate_x', ascending=False)
@@ -67,5 +67,5 @@ result.sort_values(by='Candidate_x', ascending=False)
  # Winner: Khan
  # -------------------------
 
-print("Winner: " + result.iloc[0,0])
-
+W = "Winner: " + result.iloc[0,0]
+print(W)

@@ -60,7 +60,7 @@ AC = "Average Change: $" + str(round(avg_change,2))
 #The greatest increase in profits (date and amount) over the entire period
 #Greatest Increase in Profits: Feb-2012 ($1926159)
 
-pl_max = pl_diff.max()
+pl_max = int(pl_diff.max())
 
 pl_max_index = pl_diff[pl_diff == pl_diff.max()].index.values
 #print(pl_max_index)
@@ -73,7 +73,7 @@ GI = "Greatest Increase in Profits: " + max_date + " ($"+ str(pl_max) + ")"
 
 #The greatest decrease in losses (date and amount) over the entire period
 #Greatest Decrease in Profits: Sep-2013 ($-2196167)
-pl_min = pl_diff.min()
+pl_min = int(pl_diff.min())
 
 pl_min_index = pl_diff[pl_diff == pl_diff.min()].index.values
 #print(pl_max_index)
@@ -82,8 +82,21 @@ min_date = pl_min_index_data.iloc[0,0]
 
 GD = "Greatest Decrease in Profits: " + min_date + " ($"+ str(pl_min) + ")"
 
+print("Financial Analysis")
+print("----------------------------")
 print(TM)
 print(T)
 print(AC)
 print(GI)
 print(GD)
+
+
+f = open('PyBank_HW.txt', 'w')
+
+with open('PyBank_HW.txt', 'w') as f:
+    f.write("Financial Analysis\n----------------------------\n")
+    f.write(f"{TM}\n")
+    f.write(f"{T}\n")
+    f.write(f"{AC}\n")
+    f.write(f"{GI}\n")
+    f.write(f"{GD}\n")
