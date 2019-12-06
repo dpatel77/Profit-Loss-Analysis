@@ -69,3 +69,16 @@ result.sort_values(by='Candidate_x', ascending=False)
 
 W = "Winner: " + result.iloc[0,0]
 print(W)
+
+
+f = open('PyPoll_HW.txt', 'w')
+
+with open('PyPoll_HW.txt', 'w') as f:
+    f.write("Election Results\n-------------------------\n")
+    f.write(f"{V}\n")
+    f.write("-------------------------\n")
+    f.write(f"{df_combined}\n")
+    f.write("-------------------------\n")
+    f.write(f"{W}\n")
+    f.write("-------------------------\n")
+
